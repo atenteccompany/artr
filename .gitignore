@@ -52,6 +52,3 @@ config.local.yaml
 certs/
 *.pem
 *.gguf
-
-testing-output/
-testing-tasks/

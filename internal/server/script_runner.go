@@ -63,7 +63,6 @@ func execScript(task types.TaskDef) (types.Response, error) {
 	if err != nil {
 		// check exit code
 		if exitErr, ok := err.(*exec.ExitError); ok {
-			// ret.ExitCode = exitErr.ExitCode()
 			ret.Details.ExitCode = exitErr.ExitCode()
 
 			// if stderr contains appenderror copy its value to
