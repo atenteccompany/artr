@@ -1,0 +1,10 @@
+certs/
+*.pem
+*.gguf
+
+testing-output/
+testing-tasks/
+bin/
+builds/
+out/
+
