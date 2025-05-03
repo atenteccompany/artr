@@ -29,8 +29,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/logger"
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/logger"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 func execScript(task types.TaskDef) (types.Response, error) {

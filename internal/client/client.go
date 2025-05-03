@@ -25,9 +25,9 @@ package client
 import (
 	"fmt"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/logger"
-	"github.com/atenteccompany/amms-inframgmt/internal/render"
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/logger"
+	"github.com/atenteccompany/artr/internal/render"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 // Error from RunTask are only those errors related to connection

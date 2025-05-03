@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/atenteccompany/amms-inframgmt/cmd"
+	"github.com/atenteccompany/artr/cmd"
 )
 
 func main() {

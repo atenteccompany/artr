@@ -1,10 +1,57 @@
+
+# Binaries
+/build/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go build artifacts
+*.test
+*.out
+
+# Logs and crash reports
+*.log
+*.err
+*.trace
+
+# Dependency directories (if vendoring)
+vendor/
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+
+# MacOS metadata
+.DS_Store
+
+# Linux/macOS backup files
+*.bak
+
+# Git related
+*.orig
+
+# Go coverage files
+coverage.*
+*.coverprofile
+
+# Ignore tag-generated version files if used
+version.go
+
+# Optional: config or secret files (if you ever have them)
+.env
+.env.*
+config.yaml
+config.local.yaml
 certs/
 *.pem
 *.gguf
 
 testing-output/
 testing-tasks/
-bin/
-builds/
-out/
-

@@ -29,7 +29,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 func parse(filename string) (types.Meta, error) {

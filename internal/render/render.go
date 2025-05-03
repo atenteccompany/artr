@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 func RenderScriptOutput(result types.Response) {

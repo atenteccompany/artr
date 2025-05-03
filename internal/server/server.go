@@ -30,8 +30,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/logger"
-	"github.com/atenteccompany/amms-inframgmt/tlsutil"
+	"github.com/atenteccompany/artr/internal/logger"
+	"github.com/atenteccompany/artr/tlsutil"
 )
 
 const (

@@ -28,8 +28,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/logger"
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/logger"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 func exec(conn *tls.Conn, task types.TaskDef) (types.Response, error) {

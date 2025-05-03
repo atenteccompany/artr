@@ -28,7 +28,7 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 // loads scripts available on server defined scripts directory

@@ -25,9 +25,11 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/render"
+	"github.com/atenteccompany/artr/internal/render"
 	"github.com/spf13/cobra"
 )
+
+var Version = "dev" // default fallback if not set during build
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
@@ -45,6 +47,5 @@ func printVersion(cmd *cobra.Command, args []string) {
 	// To-Do: butify later using colors
 	// Read correct version number
 	render.Logo()
-	fmt.Println("Version: v1.0.0")
-	fmt.Println("build: 1")
+	fmt.Printf("\nVersion:\t %s\n", Version)
 }

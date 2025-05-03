@@ -23,7 +23,7 @@
 package server
 
 import (
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/types"
 )
 
 var (

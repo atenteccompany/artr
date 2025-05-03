@@ -1,11 +1,13 @@
-module github.com/atenteccompany/amms-inframgmt
+module github.com/atenteccompany/artr
 
 go 1.22.0
 
-require github.com/spf13/cobra v1.9.1
+require (
+	github.com/briandowns/spinner v1.23.2
+	github.com/spf13/cobra v1.9.1
+)
 
 require (
-	github.com/briandowns/spinner v1.23.2 // indirect
 	github.com/fatih/color v1.7.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.2 // indirect

@@ -25,8 +25,8 @@ package cmd
 import (
 	"log"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/client"
-	"github.com/atenteccompany/amms-inframgmt/internal/types"
+	"github.com/atenteccompany/artr/internal/client"
+	"github.com/atenteccompany/artr/internal/types"
 	"github.com/spf13/cobra"
 )
 

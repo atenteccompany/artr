@@ -27,7 +27,7 @@ import (
 	"crypto/x509"
 	"log"
 
-	"github.com/atenteccompany/amms-inframgmt/tlsutil"
+	"github.com/atenteccompany/artr/tlsutil"
 )
 
 func getConn(addr string) (*tls.Conn, error) {

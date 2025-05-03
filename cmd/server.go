@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/atenteccompany/amms-inframgmt/internal/server"
+	"github.com/atenteccompany/artr/internal/server"
 	"github.com/spf13/cobra"
 )
 
