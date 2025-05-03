@@ -45,6 +45,6 @@ func printVersion(cmd *cobra.Command, args []string) {
 	// To-Do: butify later using colors
 	// Read correct version number
 	render.Logo()
-	fmt.Println("Version: v0.0.1")
+	fmt.Println("Version: v1.0.0")
 	fmt.Println("build: 1")
 }
