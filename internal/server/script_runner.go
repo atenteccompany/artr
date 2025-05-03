@@ -29,6 +29,7 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/atenteccompany/artr/internal/config"
 	"github.com/atenteccompany/artr/internal/logger"
 	"github.com/atenteccompany/artr/internal/types"
 )
@@ -39,6 +40,8 @@ func execScript(task types.TaskDef) (types.Response, error) {
 	// set meta
 	meta, err := parse(task.Task)
 	if err != nil {
+		ret.Details.Error = 1
+		ret.Details.Status = "Task script doesn't exist"
 		return ret, err
 	}
 	ret.Meta = meta
@@ -46,6 +49,7 @@ func execScript(task types.TaskDef) (types.Response, error) {
 	logger.Info("Executing task script: ", task.Task)
 	tsStart := time.Now()
 
+	scriptsDir := config.GetScriptsDir()
 	scriptPath := filepath.Join(scriptsDir, fmt.Sprintf("%s.sh", task.Task))
 	cmd := exec.Command("bash", scriptPath)
 

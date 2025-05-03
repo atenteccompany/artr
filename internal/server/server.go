@@ -29,26 +29,22 @@ import (
 	"crypto/x509"
 	"fmt"
 	"log"
+	"path/filepath"
 
+	"github.com/atenteccompany/artr/internal/config"
 	"github.com/atenteccompany/artr/internal/logger"
 	"github.com/atenteccompany/artr/tlsutil"
 )
 
-const (
-	DEFUALT_PORT = 4000
-)
+// const (
+// 	DEFUALT_PORT = 4000
+// )
 
-var (
-	scriptsDir string
-)
-
-func Run(port int, sd string) {
-	scriptsDir = sd
-	// Load CA certificate (to validate client certs)
-	// caCert, err := os.ReadFile("/mnt/repos/my_ca/certs/ca/ca.cert.pem")
-	// if err != nil {
-	// 	log.Fatal("Error reading CA cert:", err)
-	// }
+func Run() {
+	ucp := config.GetCertPath()
+	c := filepath.Join(ucp, "agent.cert.pem")
+	k := filepath.Join(ucp, "agent.key.pem")
+	port := config.GetPort()
 
 	// Load CA from embed
 	caCert, err := tlsutil.GetCACert()
@@ -60,7 +56,7 @@ func Run(port int, sd string) {
 	caPool.AppendCertsFromPEM(caCert)
 
 	// Load server (agent) certificate
-	cert, err := tls.LoadX509KeyPair("certs/agent.cert.pem", "certs/agent.key.pem")
+	cert, err := tls.LoadX509KeyPair(c, k)
 	if err != nil {
 		log.Fatal("Error loading agent cert/key:", err)
 	}
@@ -71,10 +67,6 @@ func Run(port int, sd string) {
 		ClientAuth:   tls.RequireAndVerifyClientCert,
 		ClientCAs:    caPool,
 		MinVersion:   tls.VersionTLS13, // optional: enforce TLS 1.3
-	}
-
-	if port == 0 {
-		port = DEFUALT_PORT
 	}
 
 	listener, err := tls.Listen("tcp", fmt.Sprintf(":%v", port), tlsConfig)

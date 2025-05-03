@@ -26,13 +26,15 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/atenteccompany/artr/internal/config"
 	"github.com/spf13/cobra"
 )
 
 // Shared variables across commands
 var (
-	verbose bool
-	cfgFile string
+	verbose  bool
+	cfgFile  string
+	certPath string
 )
 
 // rootCmd represents the base command
@@ -40,6 +42,9 @@ var rootCmd = &cobra.Command{
 	Use:   "atenrm",
 	Short: "atenrm for remote servers management",
 	Long:  `Aten Remote Management is a tool used to execute tasks and jobs on remote servers for management purposes.`,
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		config.SetCertPath(certPath)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -54,7 +59,7 @@ func init() {
 	// Persistent flags (available to all subcommands)
 	// rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
 	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.myapp.yaml)")
-	// rootCmd.PersistentFlags().StringP("server", "s", "", "Host server address")
+	rootCmd.PersistentFlags().StringVar(&certPath, "cert-path", "./certs", "certificate and key directory path")
 
 	// Mark mandatory flags
 	// rootCmd.MarkPersistentFlagRequired("server")

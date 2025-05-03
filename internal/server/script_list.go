@@ -28,6 +28,7 @@ import (
 	"path/filepath"
 	"regexp"
 
+	"github.com/atenteccompany/artr/internal/config"
 	"github.com/atenteccompany/artr/internal/types"
 )
 
@@ -36,6 +37,7 @@ func loadScriptList() (types.Response, error) {
 	var ret types.Response
 	var err error
 
+	scriptsDir := config.GetScriptsDir()
 	sp := filepath.Join(scriptsDir)
 
 	ss, err := os.ReadDir(sp)

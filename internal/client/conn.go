@@ -26,16 +26,16 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"log"
+	"path/filepath"
 
+	"github.com/atenteccompany/artr/internal/config"
 	"github.com/atenteccompany/artr/tlsutil"
 )
 
 func getConn(addr string) (*tls.Conn, error) {
-	// Load CA cert to verify agent's identity
-	// caCert, err := os.ReadFile("/mnt/repos/my_ca/certs/ca/ca.cert.pem")
-	// if err != nil {
-	// 	log.Fatal("Error reading CA cert:", err)
-	// }
+	ucp := config.GetCertPath()
+	c := filepath.Join(ucp, "client.cert.pem")
+	k := filepath.Join(ucp, "client.key.pem")
 
 	// Load CA from embed
 	caCert, err := tlsutil.GetCACert()
@@ -47,7 +47,7 @@ func getConn(addr string) (*tls.Conn, error) {
 	caPool.AppendCertsFromPEM(caCert)
 
 	// Load client certificate
-	cert, err := tls.LoadX509KeyPair("certs/client.cert.pem", "certs/client.key.pem")
+	cert, err := tls.LoadX509KeyPair(c, k)
 	if err != nil {
 		log.Fatal("Error loading client cert/key:", err)
 		return nil, err

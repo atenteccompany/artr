@@ -20,50 +20,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package cmd
-
-import (
-	"fmt"
-	"log"
-
-	"github.com/atenteccompany/artr/internal/config"
-	"github.com/atenteccompany/artr/internal/server"
-	"github.com/spf13/cobra"
-)
+package config
 
 var (
-	agentPort int
+	certPath   string
+	port       int
+	scriptsDir string
 )
 
-var serverCmd = &cobra.Command{
-	Use:   "server",
-	Short: "Start server daemon",
-	Long:  "Start server AtenInfraMgmt daemon on physical / Virtial Server",
-	Run:   runServer,
+func SetCertPath(cp string) {
+	certPath = cp
 }
 
-func init() {
-	rootCmd.AddCommand(serverCmd)
-
-	serverCmd.Flags().IntVarP(&agentPort, "port", "p", 4000, "port to listen to")
-	serverCmd.Flags().StringP("dir", "d", "", "scripts directory")
-	serverCmd.MarkFlagRequired("dir")
-	serverCmd.SetFlagErrorFunc(func(cmd *cobra.Command, err error) error {
-		if err != nil {
-			return fmt.Errorf("invalid port value")
-		}
-		return nil
-	})
+func GetCertPath() string {
+	return certPath
 }
 
-func runServer(cmd *cobra.Command, args []string) {
-	port, _ := cmd.Flags().GetInt("port")
-	scriptsDir, err := cmd.Flags().GetString("dir")
-	if err != nil {
-		log.Fatal(err)
-	}
+func SetPort(p int) {
+	port = p
+}
 
-	config.SetPort(port)
-	config.SetScriptsDir(scriptsDir)
-	server.Run()
+func GetPort() int {
+	return port
+}
+
+func SetScriptsDir(sd string) {
+	scriptsDir = sd
+}
+
+func GetScriptsDir() string {
+	return scriptsDir
 }

@@ -24,19 +24,21 @@ package server
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"strings"
 
+	"github.com/atenteccompany/artr/internal/config"
 	"github.com/atenteccompany/artr/internal/types"
 )
 
 func parse(filename string) (types.Meta, error) {
+	scriptsDir := config.GetScriptsDir()
+
 	file := filepath.Join(scriptsDir, fmt.Sprintf("%s.sh", filename))
 	b, err := os.ReadFile(file)
 	if err != nil {
-		log.Fatal()
+		return types.Meta{}, err
 	}
 	content := string(b)
 
