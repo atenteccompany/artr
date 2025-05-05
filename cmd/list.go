@@ -43,7 +43,6 @@ func init() {
 	listCmd.Flags().StringP("addr", "a", "", "Host server address")
 	listCmd.Flags().StringP("port", "p", "9443", "Host server port")
 	listCmd.MarkFlagRequired("addr")
-	listCmd.MarkFlagRequired("port")
 }
 
 func runList(cmd *cobra.Command, args []string) {

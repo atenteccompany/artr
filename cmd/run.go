@@ -45,7 +45,6 @@ func init() {
 	runCmd.Flags().StringP("port", "p", "9443", "Host server port")
 	runCmd.Flags().StringP("outdir", "o", "", "Output dir for transferred file")
 	runCmd.MarkFlagRequired("addr")
-	runCmd.MarkFlagRequired("port")
 }
 
 func runRun(cmd *cobra.Command, args []string) {
