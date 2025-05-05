@@ -28,7 +28,7 @@ import (
 )
 
 const (
-	SYS_LIST = "atenrim_sys_list"
+	SYS_LIST = "artr_sys_list"
 )
 
 const (

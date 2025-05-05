@@ -29,7 +29,11 @@ var (
 )
 
 func SetCertPath(cp string) {
-	certPath = cp
+	if len(cp) != 0 {
+		certPath = cp
+		return
+	}
+	certPath = "/etc/artr/ssl"
 }
 
 func GetCertPath() string {

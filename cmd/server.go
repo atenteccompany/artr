@@ -38,14 +38,14 @@ var (
 var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "Start server daemon",
-	Long:  "Start server AtenInfraMgmt daemon on physical / Virtial Server",
+	Long:  "Start server ARTR daemon on physical / Virtial Server",
 	Run:   runServer,
 }
 
 func init() {
 	rootCmd.AddCommand(serverCmd)
 
-	serverCmd.Flags().IntVarP(&agentPort, "port", "p", 4000, "port to listen to")
+	serverCmd.Flags().IntVarP(&agentPort, "port", "p", 9443, "port to listen to")
 	serverCmd.Flags().StringP("dir", "d", "", "scripts directory")
 	serverCmd.MarkFlagRequired("dir")
 	serverCmd.SetFlagErrorFunc(func(cmd *cobra.Command, err error) error {

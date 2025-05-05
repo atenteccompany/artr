@@ -41,7 +41,7 @@ func init() {
 	rootCmd.AddCommand(listCmd)
 
 	listCmd.Flags().StringP("addr", "a", "", "Host server address")
-	listCmd.Flags().StringP("port", "p", "", "Host server port")
+	listCmd.Flags().StringP("port", "p", "9443", "Host server port")
 	listCmd.MarkFlagRequired("addr")
 	listCmd.MarkFlagRequired("port")
 }

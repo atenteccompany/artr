@@ -42,7 +42,7 @@ func init() {
 	rootCmd.AddCommand(runCmd)
 
 	runCmd.Flags().StringP("addr", "a", "", "Host server address")
-	runCmd.Flags().StringP("port", "p", "", "Host server port")
+	runCmd.Flags().StringP("port", "p", "9443", "Host server port")
 	runCmd.Flags().StringP("outdir", "o", "", "Output dir for transferred file")
 	runCmd.MarkFlagRequired("addr")
 	runCmd.MarkFlagRequired("port")

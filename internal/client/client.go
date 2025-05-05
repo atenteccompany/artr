@@ -77,7 +77,7 @@ func RunTask(task types.TaskDef) error {
 	}
 
 	// show server exit error
-	// this belogns ATENRIM internal remote execution
+	// this belogns ARTR internal remote execution
 	// like transferring file, etc.
 	if resp.Details.Error != 0 {
 		logger.Error(resp.Details.Status)

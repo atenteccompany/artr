@@ -69,7 +69,7 @@ sudo systemctl start artr
 
 ## Scripts Layout (tasks)
 
-`arts` daemon will look for executable scripts inside a directory defined using `--dir` flag for `server` verb (e.g. /opt/artr/scripts/).
+`artr` daemon will look for executable scripts inside a directory defined using `--dir` flag for `server` verb (e.g. /opt/artr/scripts/).
 
 Each script must:
 
@@ -106,7 +106,7 @@ You may mount these scripts from containers or manage them via GitOps.
 # run a remote task named get-backup at remote server IP 192.168.1.2 where artr daemon 
 # listens on port 9443, and task is expecting to generate file that must be transferred 
 # to directory ./backups
-./arts run get-backup --addr 192.168.1.2 --port 9443 --outdir ./backups
+./artr run get-backup --addr 192.168.1.2 --port 9443 --outdir ./backups
 ```
 
 ## Architecture
@@ -114,7 +114,7 @@ You may mount these scripts from containers or manage them via GitOps.
 Aten Remote Task Runner (artr) are split to 3 components:
 
 1. user CLI: a binary CLI tool at user machine.
-2. management server: `arts` daemon running on a remote machine(s) using `systemd`:
+2. management server: `artr` daemon running on a remote machine(s) using `systemd`:
     - responsible for running task on-demand (bash scripts)
     - responsible for running internal `artr` system tasks (built-in functionality)
 3. task scripts: Bash scripts on each remote server for each functional requirement:

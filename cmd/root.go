@@ -39,9 +39,9 @@ var (
 
 // rootCmd represents the base command
 var rootCmd = &cobra.Command{
-	Use:   "atenrm",
-	Short: "atenrm for remote servers management",
-	Long:  `Aten Remote Management is a tool used to execute tasks and jobs on remote servers for management purposes.`,
+	Use:   "artr",
+	Short: "ARTR for remote servers management",
+	Long:  `Aten Remote Task Runner is a tool used to execute tasks and jobs on remote servers for management purposes.`,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		config.SetCertPath(certPath)
 	},
@@ -59,7 +59,7 @@ func init() {
 	// Persistent flags (available to all subcommands)
 	// rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
 	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.myapp.yaml)")
-	rootCmd.PersistentFlags().StringVar(&certPath, "cert-path", "./certs", "certificate and key directory path")
+	rootCmd.PersistentFlags().StringVar(&certPath, "cert-path", "/etc/artr/ssl", "certificate and key directory path")
 
 	// Mark mandatory flags
 	// rootCmd.MarkPersistentFlagRequired("server")
